@@ -9,7 +9,7 @@ import (
 type UserRepository interface {
 	Create(user *models.User) error
 	List() ([]*models.User, error)
-	GetById(id uint) (*models.User, error)
+	GetById(ID uint) (*models.User, error)
 	DeleteUser(userID int) error
 }
 
@@ -34,9 +34,9 @@ func (r UserRepositoryImpl) List() ([]*models.User, error) {
 	return users, nil
 }
 
-func (r UserRepositoryImpl) GetById(id uint) (*models.User, error) {
+func (r UserRepositoryImpl) GetById(ID uint) (*models.User, error) {
 	var user *models.User
-	if err := r.DB.Find(&user).Where("id = ?", id).Error; err != nil {
+	if err := r.DB.Find(&user).Where("id = ?", ID).Error; err != nil {
 		return nil, err
 	}
 

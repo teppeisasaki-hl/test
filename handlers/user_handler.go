@@ -73,8 +73,8 @@ func (h *UserHandler) GetUser(w http.ResponseWriter, r *http.Request, userId api
 	})
 }
 
-func (h *UserHandler) DeleteUser(w http.ResponseWriter, r *http.Request, userId api.UserId) {
-	if err := h.r.DeleteUser(userId); err != nil {
+func (h *UserHandler) DeleteUser(w http.ResponseWriter, r *http.Request, userID api.UserId) {
+	if err := h.r.DeleteUser(userID); err != nil {
 		error(w, r, http.StatusInternalServerError, err.Error())
 		return
 	}
